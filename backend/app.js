@@ -18,7 +18,7 @@ const cookieParser = require('cookie-parser');
 app.use(cookieParser());
 
 
-// console.log(process.env.ORIGIN)
+console.log(process.env.ORIGIN)
 app.use(cors({
   origin: process.env.ORIGIN, // Replace with your React app's origin
   credentials: true,

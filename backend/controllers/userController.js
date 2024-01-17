@@ -28,7 +28,7 @@ exports.addUser=async (req,res)=>{
         let token = jwt.sign({email:obj.email}, process.env.jwt_secret); 
         await user.create(obj);
         req.session.destroy();
-        res.cookie('token', token, { maxAge: 1000*60*60*24*7, httpOnly: false,secure:true ,sameSite: 'none'});
+        res.cookie('token', token, { maxAge: 1000*60*60*24*7, httpOnly: true,secure:true ,sameSite: 'none'});
         
         res.status(200).json({token});
     }
@@ -46,7 +46,7 @@ exports.signIn=async (req,res)=>{
     if(!result) return res.status(400).json({err:{msg:"not found"}});
     
     let token = jwt.sign({email:req.body.email}, process.env.jwt_secret);
-    res.cookie('token', token, { maxAge: 1000*60*60*24*7, httpOnly: false,secure:true,sameSite: 'none' });
+    res.cookie('token', token, { maxAge: 1000*60*60*24*7, httpOnly: true,secure:true,sameSite: 'none' });
     res.sendStatus(200);
     // res.status(200).json({token});
     }
@@ -62,7 +62,7 @@ exports.getUser = async (req,res)=>{
     let result  = await user.findOne({email:req.body.email});
     
     let token = req.cookies.token;
-    res.cookie('token', token, { maxAge: 1000*60*60*24*7, httpOnly: false,secure:true,sameSite: 'none' });
+    res.cookie('token', token, { maxAge: 1000*60*60*24*7, httpOnly: true,secure:true,sameSite: 'none' });
 
     res.status(200).json({email:result.email,name:result.name});
     }
@@ -112,7 +112,7 @@ exports.changePassword =async(req,res)=>{
             });
             // console.log("done", req.session.password,req.session.email);
             let token = jwt.sign({email:req.session.email}, process.env.jwt_secret);
-            res.cookie('token', token, { maxAge: 1000*60*60*24*7, httpOnly: false,secure:true ,sameSite: 'none'});
+            res.cookie('token', token, { maxAge: 1000*60*60*24*7, httpOnly: true,secure:true ,sameSite: 'none'});
             req.session.destroy();
             res.status(200).json({msg:"password changed"});
         }

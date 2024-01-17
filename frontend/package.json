@@ -1,8 +1,6 @@
 {
   "name": "assignment",
   "private": true,
-  "homepage":"https://secret-confession-webiste-frontend.vercel.app/",
-
   "version": "0.0.0",
   "type": "module",
   "scripts": {

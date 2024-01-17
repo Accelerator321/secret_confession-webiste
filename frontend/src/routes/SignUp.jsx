@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import {TextField,Button, Box} from '@mui/material';
 import { useAlert } from '../contexts/AlertPprovider';
+import useUrl from '../contexts/Url';
 
 const SignUp = () => {
     const [form,setForm] = useState({name:"", email:"",password:""});
@@ -21,7 +22,7 @@ const SignUp = () => {
 
     const handleSubmit = async (e)=>{
         e.preventDefault();
-                 let res = await fetch('http://localhost/otp',{
+                 let res = await fetch(useUrl('/otp'),{
             method:"POST",
             credentials: 'include',
             headers:{
@@ -29,7 +30,7 @@ const SignUp = () => {
             },
             body:JSON.stringify({...form})
         });
-        if(res.status==200) navigate('/otp',{ state: { url:"http://localhost/signup"} });
+        if(res.status==200) navigate('/otp',{ state: { url:useUrl("/signup")} });
         // navigate('/second-route', { state: { yourData: 'Hello from the first route!' } });
         
           else {

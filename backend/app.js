@@ -48,7 +48,7 @@ app.listen(port, ()=>{
 
 
 
-
+app.set('trust proxy', 1);
 
 app.use(sessions({
     secret: process.env.Session_secret,

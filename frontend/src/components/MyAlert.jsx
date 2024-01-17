@@ -21,7 +21,7 @@ const MyAlert = () => {
   return (
     <>
     {/* `${display}` */}
-    <Alert severity={alert.type||"info"} sx={{display:`${display}`, position:"absolute", zIndex:"10",position:"relative"}}>
+    <Alert severity={alert.type||"info"} sx={{display:`${display}`, zIndex:"10",position:"relative"}}>
         {alert.msg}
     </Alert>
 

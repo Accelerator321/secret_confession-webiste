@@ -56,7 +56,12 @@ app.use(sessions({
     saveUninitialized: false,
     store: store,
     proxy:true,
-    cookie:{maxAge: 1000*60*5, httpOnly:true,}
+    name: 'MyCoolWebAppCookieName', // This needs to be unique per-host.
+    cookie: {
+      secure: true, // required for cookies to work on HTTPS
+      httpOnly: false,
+      sameSite: 'none'
+    }
 }));
 
 

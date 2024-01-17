@@ -1,10 +1,6 @@
 const nodemailer = require('nodemailer');
 require('dotenv').config();
-    
-exports.sendMail=(receiver, msg)=>{
 
-  try{
-  
 var transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
@@ -12,6 +8,12 @@ var transporter = nodemailer.createTransport({
   pass: process.env.Google_pass
 }
 });
+    
+exports.sendMail=async (receiver, msg)=>{
+
+  try{
+  
+
 
 var mailOptions = {
   from: 'shyamprime2610@gmail.com',
@@ -20,7 +22,7 @@ var mailOptions = {
     text: `Your OTP ${msg}`
 };
 
-transporter.sendMail(mailOptions); 
+await transporter.sendMail(mailOptions); 
   }
   catch(err) {
     console.log(err);

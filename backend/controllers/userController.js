@@ -73,7 +73,7 @@ exports.getUser = async (req,res)=>{
 }
 
 
-exports.getOtp = (req,res)=>{
+exports.getOtp = async (req,res)=>{
     try{
         let otp = generateOTP();
         // console.log(otp)
@@ -85,7 +85,7 @@ exports.getOtp = (req,res)=>{
             req.session.password= req.body.password;
         if(req.body.name)
             req.session.name= req.body.name;
-        sendMail(req.body.email, otp);
+        await sendMail(req.body.email, otp);
         res.status(200).json({msg:"otp sent"});
     }
     catch(err){

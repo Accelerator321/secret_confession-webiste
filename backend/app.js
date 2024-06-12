@@ -13,16 +13,16 @@ const cookieParser = require('cookie-parser');
 
 
 
+app.use(cors({
+  // origin:["https://accelerator321.github.io","https://Accelerator321.github.io"], 
+  credentials: true,
+}));
 
-
+app.use(express.static('dist'));
 app.use(cookieParser());
 
 
 console.log(process.env.ORIGIN)
-app.use(cors({
-  origin:["https://accelerator321.github.io","https://Accelerator321.github.io"], 
-  credentials: true,
-}));
 
 
 
@@ -65,6 +65,9 @@ app.use(sessions({
     }
 }));
 
+app.get('/', function(req, res) {
+  res.sendFile(path.join(__dirname, '/dist/index.html'));
+});
 
 app.post('/signup', userController.addUser);
 app.post('/signin',userController.signIn);

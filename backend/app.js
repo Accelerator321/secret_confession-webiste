@@ -10,7 +10,7 @@ const sessions = require("express-session");
 var MongoDBStore = require('connect-mongodb-session')(sessions);
 var cors = require('cors');
 const cookieParser = require('cookie-parser');
-
+const path = require("path");
 
 
 app.use(cors({
@@ -18,7 +18,7 @@ app.use(cors({
   credentials: true,
 }));
 
-app.use(express.static('dist'));
+app.use(express.static(path.join(__dirname, '/dist')));
 app.use(cookieParser());
 
 

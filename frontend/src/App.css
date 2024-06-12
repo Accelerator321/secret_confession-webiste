@@ -1,8 +1,4 @@
-*{
-    overflow-x: hidden !important;
-    overflow-y: scroll !important;
-    
-}
+
 .container{
     width: 80vw;
     margin: 6rem auto;

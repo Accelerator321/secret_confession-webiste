@@ -20,7 +20,7 @@ app.use(cookieParser());
 
 console.log(process.env.ORIGIN)
 app.use(cors({
-  origin: process.env.ORIGIN, // Replace with your React app's origin
+  origin: process.env.ORIGIN, 
   credentials: true,
 }));
 
@@ -58,7 +58,8 @@ app.use(sessions({
     proxy:true,
     name: 'MyCoolWebAppCookieName', // This needs to be unique per-host.
     cookie: {
-      secure: true, // required for cookies to work on HTTPS
+      secure: true, 
+    
       httpOnly: false,
       sameSite: 'none'
     }

@@ -39,3 +39,8 @@ body{
 .secret-form{
     width: 60vw;
 }
+
+
+.nav-list li{
+    margin: 1rem auto;
+}

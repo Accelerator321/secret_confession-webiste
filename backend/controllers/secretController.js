@@ -8,15 +8,15 @@ exports.addSecret = async (req,res)=>{
             message:req.body.message
         }
         // console.log(obj,email);
-        let userData = await user.findOne({email:req.body.email});
+        // let userData = await user.findOne({email:req.body.email});
        
-        if(userData.count>0) return res.status(400).json({err:{msg:"already posted a sceret"}});  
+        // if(userData.count>0) return res.status(400).json({err:{msg:"already posted a sceret"}});  
         await secret.create(obj);
        
         
         
         res.status(200).send("created");
-        await user.updateOne({email}, {count:1});
+        await user.updateOne({email}, { $inc: {count: 1 }});
     }
     catch(err){
         // console.log(err);

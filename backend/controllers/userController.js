@@ -101,6 +101,7 @@ exports.getOtp = async (req,res)=>{
 exports.changePassword =async(req,res)=>{
         try{
             let otp = req.body.otp;
+            // console.log(req.body.otp, req.session.otp);
        
         if(otp !== req.session.otp) {
             return res.status(400).json({err:{msg:"wrong otp"}});

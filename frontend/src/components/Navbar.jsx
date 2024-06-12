@@ -41,7 +41,7 @@ function Navbar(props) {
         {user?(`${user.email.slice(0,10)}...`):"User"}
       </Typography>
       <Divider />
-      <List>
+      <List className = {"nav-list"}>
         {navItems.map((item, i) => (
           <ListItem key={i} disablePadding>
             <Link

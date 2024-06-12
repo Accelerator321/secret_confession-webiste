@@ -20,7 +20,7 @@ app.use(cookieParser());
 
 console.log(process.env.ORIGIN)
 app.use(cors({
-  origin: process.env.ORIGIN, 
+  origin:["https://accelerator321.github.io","https://Accelerator321.github.io"], 
   credentials: true,
 }));
 

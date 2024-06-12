@@ -44,3 +44,11 @@ body{
 .nav-list li{
     margin: 1rem auto;
 }
+
+
+
+@media(min-width:600px){
+    .title-small{
+        display: none !important;
+    }
+}

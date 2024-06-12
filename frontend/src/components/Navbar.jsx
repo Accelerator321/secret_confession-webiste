@@ -29,7 +29,7 @@ function Navbar(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const user = useAuth();
-  console.log(user)
+  // console.log(user)
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
@@ -119,6 +119,14 @@ function Navbar(props) {
           >
              {user?(user.email):"User"}
           </Typography>
+
+          <Typography
+            variant="4"
+            component="div"
+            sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
+          >
+             Secret Confessions
+          </Typography>
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
             {navItems.map((item, i) => (
               <Button key={i} sx={{ color: "#fff" }}>
@@ -151,8 +159,19 @@ function Navbar(props) {
               </Link>
             )}
           </Box>
+          <Typography
+            className= "title-small"
+            variant="5"
+            component="div"
+            
+          >
+             Secret Confessions
+          </Typography>
+        
+        
         </Toolbar>
       </AppBar>
+     
       <nav>
         <Drawer
           container={container}
@@ -169,10 +188,13 @@ function Navbar(props) {
               width: drawerWidth,
             },
           }}
-        >
+        > 
           {drawer}
         </Drawer>
+       
+
       </nav>
+     
     </Box>
   );
 }

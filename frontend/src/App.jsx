@@ -12,6 +12,7 @@ import "./App.css"
 import Navbar from './components/Navbar'
 import SecretPage from './routes/SecretPage'
 import MyAlert from './components/MyAlert'
+import Footer from './components/Footer'
 
 // import SecretsCard from './components/SecretsCard'
 
@@ -33,6 +34,7 @@ const App = () => {
 
      
      </Routes>
+     <Footer />
      
     </>
   )

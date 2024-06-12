@@ -1,6 +1,6 @@
-/* *{
-    overflow: hidden;
-} */
+*{
+    overflow-x: hidden;
+}
 .container{
     width: 80vw;
     margin: 6rem auto;
